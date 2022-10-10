@@ -1,0 +1,15 @@
+17:35:18 **** Rebuild of configuration Debug for project Circolo Scacchistico ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Tipo.o "..\\Tipo.cpp" 
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Persona.o "..\\Persona.cpp" 
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Turno.o "..\\Turno.cpp" 
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o "..\\Main.cpp" 
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Partita.o "..\\Partita.cpp" 
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Torneo.o "..\\Torneo.cpp" 
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o GiocatoreTorneo.o "..\\GiocatoreTorneo.cpp" 
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Data.o "..\\Data.cpp" 
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Risultato.o "..\\Risultato.cpp" 
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Circolo.o "..\\Circolo.cpp" 
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Giocatore.o "..\\Giocatore.cpp" 
+g++ -o "Circolo Scacchistico.exe" Circolo.o Data.o Giocatore.o GiocatoreTorneo.o Main.o Partita.o Persona.o Risultato.o Tipo.o Torneo.o Turno.o 
+Info: Nothing to build for Circolo Scacchistico

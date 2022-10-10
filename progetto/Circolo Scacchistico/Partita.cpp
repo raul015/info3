@@ -1,0 +1,84 @@
+#include"Partita.hpp"
+
+Partita::Partita(GiocatoreTorneo* giocatore1,GiocatoreTorneo* giocatore2){
+
+//	Partita::Partita(	shared_ptr<GiocatoreTorneo> giocatore1,	shared_ptr<GiocatoreTorneo> giocatore2){
+
+	this->giocatore1 = giocatore1;
+	this->giocatore2 = giocatore2;
+	// INIZIAlizzo anche i risultati della partita di scacchi ...
+	this->risultato1 = -1;
+	this->risultato2 = -1;
+
+	cout<<"è iniziata la sfida tra "<<giocatore1->getGiocatore()->nome << " e "<<giocatore2->getGiocatore()->nome<<endl ;
+
+}
+
+
+void Partita:: risultato(ris primo, ris secondo){
+
+// Devo assegnare i valori dei punteggi...
+
+	if(primo == secondo ){ // vuol dire solo che c'è stato un pareggio
+
+		if(primo == 2 && secondo == 2){
+			this->risultato1 = 0.5;
+			this->risultato2 = 0.5;
+			this->stato_partita = 0;
+			this->giocatore1->punteggio += risultato1;
+			this->giocatore2->punteggio += risultato2;
+
+		}
+		else
+			cout<<"Non è possibile inserire un risultato di questo tipo"<<endl;
+
+	}
+
+	else{
+
+			if(primo == 2 || secondo == 2) //
+				cout<<"Risultato non ammissibile, ritenta con l'inserimento"<<endl;
+			else{
+
+					if(primo == 0 && secondo == 1){
+						this->risultato1 = 1;
+						this->risultato2 = 0;
+					}
+					else {
+						this->risultato1 = 0;
+						this->risultato2 = 1;
+
+					}
+
+					this->stato_partita = 0;
+					this->giocatore1->punteggio += risultato1;
+					this->giocatore2->punteggio += risultato2;
+
+			}
+	}
+
+	cout<<"punti partita : "<<giocatore1->getGiocatore()->nome <<" "<<risultato1<<endl;
+	cout<<"punti partita : "<<giocatore2->getGiocatore()->nome <<" "<<risultato2<<endl;
+
+}
+
+
+void Partita::reset(){
+	this->risultato1 = 0;
+	this->risultato2 = 0;
+	this->stato_partita = 1;
+}
+
+
+
+double Partita:: getrisultato1(){
+	return risultato1;
+}
+double Partita::  getrisultato2(){
+	return risultato2;
+}
+Partita:: ~Partita(){} // senza questo contiene errori il codice....
+
+
+
+

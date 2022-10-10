@@ -1,0 +1,90 @@
+/*
+ * Torneo.h
+ *
+ *  Created on: 1 ott 2022
+ *      Author: user
+ */
+
+#ifndef SRC_TORNEO_HPP_
+#define SRC_TORNEO_HPP_
+#include "Data.hpp"
+#include"Tipo.cpp"
+#include"Turno.hpp"
+#include<vector>
+#include "GiocatoreTorneo.hpp"
+#include<memory>
+class Torneo{
+
+	static const int turni = 5;
+public:
+
+
+//	Torneo(string nome,float costo,Data* date,int codice, Tipo tipo_torneo);
+	Torneo(string nome,float costo,shared_ptr<Data>,int codice, Tipo tipo_torneo);
+
+
+	string getNome();
+	float getCosto();
+	Data* getData();
+	int getCodice();
+	int getTurnoComplessivo();
+
+//	void inserisci(Giocatore*);
+	void inserisci(shared_ptr<Giocatore>);
+	void avvia();
+	void generaTurno();
+
+	bool compareElo(GiocatoreTorneo*,GiocatoreTorneo*);
+//	bool compareElo( shared_ptr<GiocatoreTorneo> ,  shared_ptr<GiocatoreTorneo> );
+
+	bool comparePunti(GiocatoreTorneo*, GiocatoreTorneo*);
+//	bool comparePunti( shared_ptr<GiocatoreTorneo> ,  shared_ptr<GiocatoreTorneo> );
+
+	void stampaRisultati();
+	void ordinaElo();
+	void ordinaPunti();
+	void stampa();
+	void avvioTurno();
+	void risultatoAccoppiamento(int,int,ris,ris);
+	void resetAccoppiamento(int,int accoppiamento);
+	bool controlloTurno();
+	void fineTurno();
+	void risultatiFinali();
+
+	virtual ~Torneo();
+
+private:
+
+	string nome;
+	float costo;
+	//Data* data;
+	shared_ptr<Data> data;
+	int codice;
+	Tipo tipo_torneo;
+
+	// Capi che andremo a rieepire durante il torneo
+
+//	vector<Giocatore*> lista_Iscrizioni;
+	vector<shared_ptr<Giocatore>> lista_Iscrizioni;
+
+	vector<GiocatoreTorneo*> lista_score;
+//	vector<shared_ptr<GiocatoreTorneo>> lista_score;
+
+
+//	vector<Turno*> lista_turni;
+	vector<shared_ptr<Turno>> lista_turni;
+
+	bool stato_torneo = false;
+	bool stato_turno = false;
+	Turno* turno = NULL; // puntatore inizializzato a NULL
+
+	Giocatore* forfait = new Giocatore("forfait","fortait",0);
+
+//	Giocatore* forfait = new  Giocatore("forfait","fortait",0);
+
+
+};
+
+
+
+#endif /* SRC_TORNEO_HPP_ */
